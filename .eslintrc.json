@@ -4,6 +4,7 @@
   "plugins": ["import"],
   "rules": {
     "dot-notation": "off",
+    "import/first": "off",
     "import/order": [
       "warn",
       {

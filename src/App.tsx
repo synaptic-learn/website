@@ -5,6 +5,7 @@ import {
   createRoutesFromElements,
   Outlet
 } from "react-router-dom";
+import { io } from "socket.io-client";
 
 import Navbar from "./components/Navbar";
 import LessonPage from "./pages/LessonPage";
@@ -40,6 +41,9 @@ const router = createBrowserRouter(
     </Route>
   )
 );
+
+const socket = io();
+socket.on("message", console.log);
 
 export default function App() {
   return <RouterProvider router={router} />;
