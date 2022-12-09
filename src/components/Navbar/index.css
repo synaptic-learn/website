@@ -1,0 +1,12 @@
+#navbar {
+  background: var(--dark-gradient);
+  z-index: 999;
+}
+
+#navbar .nav-link {
+  color: var(--sec);
+}
+
+#navbar .nav-link:hover {
+  color: var(--light);
+}
