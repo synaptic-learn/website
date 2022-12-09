@@ -1,0 +1,62 @@
+{
+  "name": "thing",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.8.4",
+    "video.js": "^7.20.3"
+  },
+  "devDependencies": {
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@types/video.js": "^7.3.50",
+    "@typescript-eslint/parser": "^5.42.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
+  },
+  "scripts": {
+    "dev:p": "react-scripts start",
+    "dev:s": "nodemon",
+    "build:p": "rm -rf build && react-scripts build",
+    "build:s": "rm -rf dist && tsc -p server",
+    "start": "node dist/index.js",
+    "eject:p": "react-scripts eject",
+    "postinstall": "husky install",
+    "lint": "yarn lint:prettier && yarn lint:eslint",
+    "lint:eslint": "eslint --cache --cache-location node_modules/.cache/eslint/.eslintcache --fix \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:prettier": "prettier --cache --loglevel silent --write \"**/*.{css,html,json,md}\""
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
