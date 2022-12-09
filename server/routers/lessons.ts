@@ -14,4 +14,14 @@ lessons_router.get(
   })
 );
 
+lessons_router.get(
+  "/:id",
+  catchNext(async function (req, res) {
+    const result = await ddb
+      .getItem({ Key: { id: { S: req.params["id"] } }, TableName: aws_ddb_config.table })
+      .promise();
+    res.send(result.Item);
+  })
+);
+
 export default lessons_router;

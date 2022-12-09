@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import LessonPage from "./pages/LessonPage";
 import LessonsPage from "./pages/LessonsPage";
 import StreamPage from "./pages/StreamPage";
 
@@ -27,6 +28,13 @@ const router = createBrowserRouter(
         element={<LessonsPage />}
         loader={function () {
           return fetch(`/api/lessons`);
+        }}
+      />
+      <Route
+        path="lessons/:id"
+        element={<LessonPage />}
+        loader={function ({ params }) {
+          return fetch(`/api/lessons/${params.id}`);
         }}
       />
     </Route>
