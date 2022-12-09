@@ -5,22 +5,24 @@ import {
   createRoutesFromElements,
   Outlet
 } from "react-router-dom";
-import { io } from "socket.io-client";
 
+import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import LessonPage from "./pages/LessonPage";
 import LessonsPage from "./pages/LessonsPage";
 import StreamPage from "./pages/StreamPage";
+import AlertProvider from "./providers/AlertProvider";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       path="/"
       element={
-        <>
+        <AlertProvider>
           <Navbar />
+          <Alert />
           <Outlet />
-        </>
+        </AlertProvider>
       }
     >
       <Route index element={<StreamPage />} />
@@ -41,9 +43,6 @@ const router = createBrowserRouter(
     </Route>
   )
 );
-
-const socket = io();
-socket.on("message", console.log);
 
 export default function App() {
   return <RouterProvider router={router} />;
