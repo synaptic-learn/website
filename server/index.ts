@@ -1,6 +1,7 @@
 import "./configs/setup";
 
 import server_config from "./configs/server";
+import "./connections/aws";
 import server from "./connections/server";
 
 server.listen(server_config.port, server_config.hostname, () =>
