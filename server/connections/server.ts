@@ -1,11 +1,10 @@
 import { mqtt } from "aws-iot-device-sdk-v2";
 import Express, { ErrorRequestHandler, static as serve, urlencoded } from "express";
-import { createServer } from "https";
+import { createServer } from "http";
 import { Server } from "socket.io";
 
 import NextError from "../NextError";
 import aws_iot_config from "../configs/aws/iot";
-import server_config from "../configs/server";
 import api_router from "../routers/api";
 
 import mqtt_connection from "./aws/mqtt";
@@ -34,7 +33,7 @@ const nextErrorMiddleware: ErrorRequestHandler = (err, _, res, next) => {
 };
 express.use(nextErrorMiddleware);
 
-const server = createServer({ cert: server_config.cert, key: server_config.key }, express);
+const server = createServer(express);
 
 const io = new Server(server);
 
